@@ -6,7 +6,7 @@ interface ContainerProps {
 
 export const Bag = ({ children }: ContainerProps) => {
   return (
-    <section className="w-11/12 h-96 pt-3 bg-white rounded border border-gray-300 flex flex-col justify-center items-center gap-6">
+    <section className="w-95 h-96 pt-3 bg-white rounded border border-gray-300 flex flex-col justify-center items-center gap-6">
       {children}
     </section>
   );
