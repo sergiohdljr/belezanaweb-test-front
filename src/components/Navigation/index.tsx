@@ -1,12 +1,26 @@
+import { useState } from "react";
+import { NavigationButton } from "./NavigationButton";
+
 export const Navigation = () => {
+  const [Active, setActive] = useState(0);
+
+  const activeButton = (value: number) => {
+    setActive(value);
+  };
+
+  const navLinks = ["Sacola", "Pagamento", "Confirmação"];
   return (
-    <header className="bg-white w-full h-16 flex justify-center shadow  ">
+    <header className="bg-white w-full h-16 flex  justify-center shadow  ">
       <nav className="w-fit flex gap-3 items-stretch border-black">
-        <button className="text-gray-400 p-1 border-b-2 border-black">
-          Sacola
-        </button>
-        <button className="text-gray-400 p-1">Pagamento</button>
-        <button className="text-gray-400 p-1">Confirmação</button>
+        {navLinks.map((title, index) => (
+          <NavigationButton
+            title={title}
+            active={Active}
+            key={index}
+            IdKey={index}
+            onClick={activeButton}
+          />
+        ))}
       </nav>
     </header>
   );
