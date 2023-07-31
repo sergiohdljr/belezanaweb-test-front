@@ -1,4 +1,4 @@
-import { Bag, Product } from "./components";
+import { Bag, PaymentDetails } from "./components";
 import { Form } from "./components/Form/Form";
 import { LayoutApp } from "./Layouts";
 
@@ -8,7 +8,7 @@ export const App = () => {
       <Bag>
         <Form />
       </Bag>
-      <section className="w-full h-64 bg-white"></section>
+      <PaymentDetails />
     </LayoutApp>
   );
 };
