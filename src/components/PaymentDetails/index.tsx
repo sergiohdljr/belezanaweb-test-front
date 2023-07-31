@@ -17,7 +17,11 @@ export const PaymentDetails = () => {
         <h2 className="text-xl font-semibold ">Subtotal: </h2>
         <h2 className="text-xl font-semibold ">R$ 600,00</h2>
       </div>
-      <button className=" bg-purple-700 p-3 text-white text-lg font-semibold rounded hover:opacity-70">
+      <button
+        type="submit"
+        form="cardForm"
+        className=" bg-purple-700 p-3 text-white text-lg font-semibold rounded hover:opacity-70"
+      >
         Seguir o Pagamento
       </button>
     </section>
