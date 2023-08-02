@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { NavigationButton } from "./NavigationButton";
+import { NavStore } from "../../store";
 
 export const Navigation = () => {
-  const [Active, setActive] = useState("Sacola");
-
-  const activeButton = (value: string) => {
-    setActive(value);
-  };
+  const { active, setActive } = NavStore();
 
   const navLinks = ["Sacola", "Pagamento", "Confirmação"];
   return (
@@ -15,10 +11,9 @@ export const Navigation = () => {
         {navLinks.map((title, index) => (
           <NavigationButton
             title={title}
-            active={Active}
+            active={active}
             key={index}
             IdKey={title}
-            onClick={activeButton}
           />
         ))}
       </nav>
