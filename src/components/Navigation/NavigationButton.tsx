@@ -13,7 +13,11 @@ export const NavigationButton = ({ title, active, IdKey }: buttonProps) => {
   return (
     <button
       className={`text-gray-400 p-1 ${checkActive} transition-all duration-100 ease-in `}
-      onClick={() => setActive(title)}
+      onClick={() => {
+        if (active === "Sacola" || "Pagamento") {
+          title !== "Confirmação" ? setActive(title) : setActive(active);
+        }
+      }}
     >
       {title}
     </button>
