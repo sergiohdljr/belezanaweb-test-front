@@ -1,4 +1,11 @@
+import { NavStore } from "../../store";
+
 export const PaymentDetails = () => {
+  const { active } = NavStore();
+
+  const ButtonTitle =
+    active === "Sacola" ? "Seguir para o pagamento" : "Finalizar Pedido";
+
   return (
     <section className="w-full h-64  bg-white p-7 flex flex-col gap-4">
       <div className="w-full flex justify-between">
@@ -20,9 +27,9 @@ export const PaymentDetails = () => {
       <button
         type="submit"
         form="cardForm"
-        className=" bg-purple-700 p-3 text-white text-lg font-semibold rounded hover:opacity-70"
+        className=" bg-purple-700 p-3 text-white text-lg font-semibold rounded hover:opacity-70 transition-all duration-100 ease-in"
       >
-        Seguir o Pagamento
+        {ButtonTitle}
       </button>
     </section>
   );
