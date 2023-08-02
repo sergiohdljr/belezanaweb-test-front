@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 interface ContainerProps {
-  children: ReactNode[];
+  children: ReactNode[] | ReactNode;
 }
 
 export const Bag = ({ children }: ContainerProps) => {
