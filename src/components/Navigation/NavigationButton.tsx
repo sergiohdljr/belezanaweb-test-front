@@ -1,8 +1,8 @@
 interface buttonProps {
   title: string;
-  active: number;
-  onClick: (IdKey: number) => void;
-  IdKey: number;
+  active: string;
+  onClick: (IdKey: string) => void;
+  IdKey: string;
 }
 
 export const NavigationButton = ({ title, active, onClick, IdKey}: buttonProps) => {

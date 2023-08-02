@@ -2,9 +2,9 @@ import { useState } from "react";
 import { NavigationButton } from "./NavigationButton";
 
 export const Navigation = () => {
-  const [Active, setActive] = useState(0);
+  const [Active, setActive] = useState("Sacola");
 
-  const activeButton = (value: number) => {
+  const activeButton = (value: string) => {
     setActive(value);
   };
 
@@ -17,7 +17,7 @@ export const Navigation = () => {
             title={title}
             active={Active}
             key={index}
-            IdKey={index}
+            IdKey={title}
             onClick={activeButton}
           />
         ))}
