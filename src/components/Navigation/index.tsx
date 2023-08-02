@@ -2,7 +2,7 @@ import { NavigationButton } from "./NavigationButton";
 import { NavStore } from "../../store";
 
 export const Navigation = () => {
-  const { active, setActive } = NavStore();
+  const { active } = NavStore();
 
   const navLinks = ["Sacola", "Pagamento", "Confirmação"];
   return (
