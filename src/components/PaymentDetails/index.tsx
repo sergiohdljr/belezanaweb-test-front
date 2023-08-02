@@ -1,11 +1,9 @@
 import { NavStore } from "../../store";
+import { ButtonClick, SubmitButton } from "..";
 
 export const PaymentDetails = () => {
   const { active } = NavStore();
-
-  const ButtonTitle =
-    active === "Sacola" ? "Seguir para o pagamento" : "Finalizar Pedido";
-
+  const ButtonType = active === "Sacola" ? <ButtonClick /> : <SubmitButton />;
   return (
     <section className="w-full h-64  bg-white p-7 flex flex-col gap-4">
       <div className="w-full flex justify-between">
@@ -24,13 +22,7 @@ export const PaymentDetails = () => {
         <h2 className="text-xl font-semibold ">Subtotal: </h2>
         <h2 className="text-xl font-semibold ">R$ 600,00</h2>
       </div>
-      <button
-        type="submit"
-        form="cardForm"
-        className=" bg-purple-700 p-3 text-white text-lg font-semibold rounded hover:opacity-70 transition-all duration-100 ease-in"
-      >
-        {ButtonTitle}
-      </button>
+      {ButtonType}
     </section>
   );
 };

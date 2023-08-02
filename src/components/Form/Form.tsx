@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { infer, number, object, string } from "zod";
+import { NavStore } from "../../store";
 
 export const Form = () => {
   const schema = object({
@@ -16,7 +17,10 @@ export const Form = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<formSchema> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<formSchema> = (data) => {
+    console.log(data);
+  };
 
   return (
     <form
