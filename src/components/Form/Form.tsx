@@ -8,7 +8,7 @@ export const Form = () => {
     numero: string()
       .nonempty({ message: "Número do cartão é obrigatorio" })
       .min(16, { message: "O número é composto por 16 números" })
-      .max(16, { message: "O número é composto por 16 números" })
+      .max(19, { message: "O número é composto por 16 números" })
       .transform((cartão) => formatCartNumber(cartão)),
     nomeTitular: string()
       .nonempty({
