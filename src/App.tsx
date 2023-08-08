@@ -1,4 +1,4 @@
-import { Bag, PaymentDetails, Product } from "./components";
+import { Bag, PaymentDetails, Products } from "./components";
 import { Form } from "./components/Form/Form";
 import { UseGetProduct } from "./Hooks/getProductData";
 import { LayoutApp } from "./Layouts";
@@ -8,12 +8,14 @@ export const App = () => {
   const { active } = NavStore();
   const { data } = UseGetProduct();
 
-  const arrTemp = [1, 2, 3];
-
-  const Produtos = arrTemp.map((produto) => <Product />);
+  const Items = data?.items.map(({ product }) => product);
 
   const ActiveNav =
-    active === "Sacola" ? Produtos : active === "Pagamento" ? <Form /> : null;
+    active === "Sacola" ? (
+      <Products produtos={Items!} />
+    ) : active === "Pagamento" ? (
+      <Form />
+    ) : null;
 
   return (
     <LayoutApp>
