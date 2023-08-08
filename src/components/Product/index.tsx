@@ -18,11 +18,15 @@ export const Products = (product: productsInventory) => {
             <img src={thumbnail} alt="" className="w-full h-full" />
           </figure>
           <p className="text-xs flex flex-1">{name}</p>
-          <div className="h-5/6 flex flex-col justify-between">
+          <div className="h-5/6 flex flex-col justify-end">
             {priceSpecification.discount > 0 ? (
-              <span className="text-sm">R$: {priceSpecification.maxPrice}</span>
+              <span className="text-sm line-through text-gray-400 ">
+                R$: {priceSpecification.maxPrice}
+              </span>
             ) : null}
-            <span className="text-sm">R$: {priceSpecification.price}</span>
+            <span className="text-sm  font-semibold ">
+              R$: {priceSpecification.price}
+            </span>
           </div>
         </div>
       );
