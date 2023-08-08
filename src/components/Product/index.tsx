@@ -1,3 +1,29 @@
+export interface Product {
+  sku: string;
+  name: string;
+  imageObjects: ImageObject[];
+  priceSpecification: PriceSpecification;
+}
+
+export interface ImageObject {
+  featured: boolean;
+  thumbnail: string;
+  small: string;
+  medium: string;
+  large: string;
+  extraLarge: string;
+  valid: boolean;
+}
+
+export interface PriceSpecification {
+  sku: string;
+  price: number;
+  originalPrice: number;
+  maxPrice: number;
+  percent: number;
+  discount: number;
+}
+
 export const Product = () => {
   return (
     <div className="w-full h-16 p-1 flex gap-1 justify-between items-center">
