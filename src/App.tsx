@@ -10,6 +10,14 @@ export const App = () => {
 
   const Items = data?.items.map(({ product }) => product);
 
+  const pricesTotals = data && {
+    qtdProdutos: Items?.length,
+    subTotal: data.subTotal,
+    shippingTotal: data.shippingTotal,
+    discount: data.discount,
+    total: data.total,
+  };
+
   const ActiveNav =
     active === "Sacola" ? (
       <Products produtos={Items!} />
@@ -20,7 +28,13 @@ export const App = () => {
   return (
     <LayoutApp>
       <Bag>{ActiveNav}</Bag>
-      <PaymentDetails />
+      <PaymentDetails
+        discount={pricesTotals?.discount}
+        qntProducts={pricesTotals?.qtdProdutos}
+        subTotal={pricesTotals?.subTotal}
+        total={pricesTotals?.total}
+        shippingTotal={pricesTotals?.shippingTotal}
+      />
     </LayoutApp>
   );
 };

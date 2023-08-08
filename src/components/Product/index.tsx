@@ -18,7 +18,7 @@ export const Products = (product: productsInventory) => {
             <img src={thumbnail} alt="" className="w-full h-full" />
           </figure>
           <p className="text-xs flex flex-1">{name}</p>
-          <div className="h-5/6 flex flex-col justify-end">
+          <div className="h-5/6 flex flex-col justify-center">
             {priceSpecification.discount > 0 ? (
               <span className="text-sm line-through text-gray-400 ">
                 R$: {priceSpecification.maxPrice}
