@@ -1,5 +1,6 @@
 import { NavStore } from "../../store";
 import { ButtonClick, SubmitButton } from "..";
+import { formatToReal } from "../../utils";
 
 export interface PaymentProps {
   qntProducts?: number;
@@ -24,19 +25,21 @@ export const PaymentDetails = ({
     <section className="w-full h-64  bg-white p-7 flex flex-col gap-4">
       <div className="w-full flex justify-between">
         <span>Produtos: {`(${qntProducts} items)`}</span>
-        <span>R$ {subTotal}</span>
+        <span>R$ {formatToReal(subTotal!)}</span>
       </div>
       <div className="w-full  flex justify-between">
         <span>Frete: </span>
-        <span>R$ {shippingTotal}</span>
+        <span>R$ {formatToReal(shippingTotal!)}</span>
       </div>
       <div className="w-full flex justify-between">
         <span>Desconto: </span>
-        <span className="font-semibold text-purple-700">R$ {discount}</span>
+        <span className="font-semibold text-purple-700">
+          R$ {formatToReal(discount!)}
+        </span>
       </div>
       <div className="w-full flex justify-between">
         <h2 className="text-xl font-semibold ">Subtotal: </h2>
-        <h2 className="text-xl font-semibold ">R$ {total}</h2>
+        <h2 className="text-xl font-semibold ">R$ {formatToReal(total!)}</h2>
       </div>
       {ButtonType}
     </section>

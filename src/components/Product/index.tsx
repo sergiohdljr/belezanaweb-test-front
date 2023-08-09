@@ -1,3 +1,4 @@
+import { formatToReal } from "../../utils";
 import { IProduct } from "./interfaces";
 
 interface productsInventory {
@@ -21,11 +22,11 @@ export const Products = (product: productsInventory) => {
           <div className="h-5/6 flex flex-col justify-center">
             {priceSpecification.discount > 0 ? (
               <span className="text-sm line-through text-gray-400 ">
-                R$: {priceSpecification.maxPrice}
+                R$: {formatToReal(priceSpecification.maxPrice)}
               </span>
             ) : null}
             <span className="text-sm  font-semibold ">
-              R$: {priceSpecification.price}
+              R$: {formatToReal(priceSpecification.price)}
             </span>
           </div>
         </div>
