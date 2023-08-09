@@ -1,3 +1,4 @@
+import { NavStore } from "../../store";
 import { formatToReal } from "../../utils";
 import { IProduct } from "./interfaces";
 
@@ -7,6 +8,7 @@ interface productsInventory {
 
 export const Products = (product: productsInventory) => {
   const { produtos } = product;
+  const { active } = NavStore();
 
   return produtos?.map(({ name, priceSpecification, sku, imageObjects }) => {
     return imageObjects?.map(({ thumbnail }) => {
@@ -19,16 +21,18 @@ export const Products = (product: productsInventory) => {
             <img src={thumbnail} alt="" className="w-full h-full" />
           </figure>
           <p className="text-xs flex flex-1">{name}</p>
-          <div className="h-5/6 flex flex-col justify-center">
-            {priceSpecification.discount > 0 ? (
-              <span className="text-sm line-through text-gray-400 ">
-                R$: {formatToReal(priceSpecification.maxPrice)}
+          {active === "Confirmação" ? null : (
+            <div className="h-5/6 flex flex-col justify-center">
+              {priceSpecification.discount > 0 ? (
+                <span className="text-sm line-through text-gray-400 ">
+                  R$: {formatToReal(priceSpecification.maxPrice)}
+                </span>
+              ) : null}
+              <span className="text-sm  font-semibold ">
+                R$: {formatToReal(priceSpecification.price)}
               </span>
-            ) : null}
-            <span className="text-sm  font-semibold ">
-              R$: {formatToReal(priceSpecification.price)}
-            </span>
-          </div>
+            </div>
+          )}
         </div>
       );
     });

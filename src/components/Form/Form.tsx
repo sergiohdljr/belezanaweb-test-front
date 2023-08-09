@@ -1,6 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, schema } from "./interfaces";
+import { DataUserStore } from "../../store/UserDataStore";
+import { NavStore } from "../../store";
 
 export const Form = () => {
   const {
@@ -12,8 +14,12 @@ export const Form = () => {
     resolver: zodResolver(schema),
   });
 
+  const { setUserData } = DataUserStore();
+  const { setActive } = NavStore();
+
   const onSubmit: SubmitHandler<formSchema> = (data) => {
-    console.log(data);
+    setUserData(data);
+    setActive("Confirmação");
     reset({
       codigoCVV: "",
       dataValidade: "",
